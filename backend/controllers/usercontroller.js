@@ -36,10 +36,10 @@ export const registerUser = async (req, res) => {
       return res.status(400).json({ message: "User already exists" });
     }
     if (role === "admin" && req.body.Password !== process.env.ADMIN_SECRET) {
-  return res.status(403).json({ message: "Invalid admin signup secret" });
+  return res.status(403).json({ message: "Invalid admin signup password" });
     }
     if (role === "owner" && req.body.Password !== process.env.OWNER_SECRET) {
-  return res.status(403).json({ message: "Invalid owner signup secret" });
+  return res.status(403).json({ message: "Invalid owner signup password" });
     }
 
 
